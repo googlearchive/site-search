@@ -1,4 +1,4 @@
-site-search
-===========
+paper-site-search
+===================
 
-A site search control à la Material Design that fires off to a [site:] Google search
+See the [component page](http://www.polymer-project.org/docs/elements/paper-elements.html#paper-site-search) for more information.
