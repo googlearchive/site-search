@@ -1,5 +1,5 @@
 {
-  "name": "paper-site-search",
+  "name": "site-search",
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",

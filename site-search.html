@@ -9,38 +9,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 
-`paper-site-search` is a single-line search text field that kicks out to a [site:]
+`site-search` is a single-line search text field that kicks out to a [site:]
 Google search for a specific domain (by default, the current domain).
 It is a convenience element composed of a `paper-input` and a `paper-icon-button`.
 
 Example:
 
-    <paper-site-search label="meerkats"></paper-site-search>
+    <site-search label="meerkats"></site-search>
 
 Theming
 -------
 
-`paper-site-search` can be styled similarly to `paper-input`.
+`site-search` can be styled similarly to `paper-input`.
 
 Form submission
 ---------------
 
-Like `paper-input`, `paper-site-search` does not work out of
+Like `paper-input`, `site-search` does not work out of
 the box with the native `form` element. This is because the native `form` is not aware of
-shadow DOM and does not treat `paper-site-search` as a form element.
+shadow DOM and does not treat `site-search` as a form element.
 
 See <a href="https://github.com/garstasio/ajax-form">`ajax-form`</a> for a
-possible solution to submitting a `paper-site-search`.
+possible solution to submitting a `site-search`.
 
 @group Paper Elements
-@element paper-site-search
+@element site-search
 @homepage github.io
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-input/paper-input-decorator.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
-<polymer-element name="paper-site-search">
+<polymer-element name="site-search">
   <template>
 
     <style>
