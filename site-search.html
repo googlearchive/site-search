@@ -22,16 +22,6 @@ Theming
 
 `site-search` can be styled similarly to `paper-input`.
 
-Form submission
----------------
-
-Like `paper-input`, `site-search` does not work out of
-the box with the native `form` element. This is because the native `form` is not aware of
-shadow DOM and does not treat `site-search` as a form element.
-
-See <a href="https://github.com/garstasio/ajax-form">`ajax-form`</a> for a
-possible solution to submitting a `site-search`.
-
 @group Paper Elements
 @element site-search
 @homepage github.io
@@ -66,28 +56,28 @@ possible solution to submitting a `site-search`.
     </style>
 
     <paper-input-decorator
-        label="{{label}}"
-        floatingLabel="{{floatingLabel}}"
-        value="{{value}}"
-        disabled?="{{disabled || condensed}}"
-        class="{{ {condensed: condensed} | tokenList }}">
+      label="{{label}}"
+      floatingLabel="{{floatingLabel}}"
+      value="{{value}}"
+      disabled?="{{disabled || condensed}}"
+      class="{{ {condensed: condensed} | tokenList }}">
       <div horizontal layout>
         <paper-icon-button
-            id="button"
-            icon="search"
-            title="search"
-            tabindex="0"
-            aria-label="search"
-            disabled?="{{!canBeCondensed}}"
-            on-tap="{{toggleSearch}}">
+          id="button"
+          icon="search"
+          title="search"
+          tabindex="0"
+          aria-label="search"
+          disabled?="{{!canBeCondensed}}"
+          on-tap="{{toggleSearch}}">
         </paper-icon-button>
         <input flex
-            type="search"
-            value="{{value}}"
-            committedValue="{{committedValue}}"
-            on-keyup="{{onKeyUp}}"
-            disabled?="{{disabled}}">
-        </div>
+          type="search"
+          value="{{value}}"
+          committedValue="{{committedValue}}"
+          on-keyup="{{onKeyUp}}"
+          disabled?="{{disabled}}">
+      </div>
     </paper-input-decorator>
 
   </template>
@@ -155,14 +145,13 @@ possible solution to submitting a `site-search`.
       },
 
       toggleSearch: function() {
-        if (!this.canBeCondensed)
-          return;
+        if (!this.canBeCondensed) return;
         this.condensed = !this.condensed;
       },
 
       onKeyUp: function(e) {
         if (e.keyCode == 13) {  // Enter.
-          var q = 'site:' + this.site + '+' + this.value;
+          var q = encodeURIComponent('site:' + this.site + ' ' + this.value);
           window.open('https://www.google.com/search?q=' + q);
         }
       }
