@@ -1,4 +1,6 @@
 site-search
-===========
+===================
 
-A site search control à la Material Design that fires off to a [site:] Google search
+`site-search` is a single-line search text field that kicks out to a [site:]
+Google search for a specific domain (by default, the current domain).
+It is a convenience element composed of a `paper-input` and a `paper-icon-button`.
