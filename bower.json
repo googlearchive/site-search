@@ -1,0 +1,7 @@
+{
+  "name": "site-search#gh-pages",
+  "private": true,
+  "dependencies": {
+    "site-search": "PolymerLabs/site-search#master"
+  }
+}

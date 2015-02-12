@@ -1,0 +1,164 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <title>site-search</title>
+
+  <script src="../webcomponentsjs/webcomponents.js"></script>
+
+  <link href="../font-roboto/roboto.html" rel="import">
+  <link href="site-search.html" rel="import">
+
+  <style shim-shadowdom>
+
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      font-size: 14px;
+      margin: 0;
+      padding: 24px;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-touch-callout: none;
+    }
+
+    section {
+      padding: 20px 0;
+    }
+
+    section > div {
+      padding: 14px;
+      font-size: 16px;
+    }
+
+    site-search.fixed {
+      width: 80%;
+    }
+
+    site-search.narrow {
+      width: 150px;
+    }
+
+    .custom /deep/ ::-webkit-input-placeholder {
+      color: #f4b400;
+    }
+
+    .custom /deep/ ::-moz-placeholder {
+      color: #f4b400;
+    }
+
+    .custom /deep/ :-ms-input-placeholder {
+      color: #f4b400;
+    }
+
+    .custom /deep/ .label-text,
+    .custom /deep/ .error {
+      color: #f4b400;
+    }
+
+    .custom /deep/ .unfocused-underline {
+      background-color: #f4b400;
+    }
+
+    .custom[focused] /deep/ .floated-label .label-text {
+      color: #0f9d58;
+    }
+
+    .custom /deep/ .focused-underline {
+      background-color: #0f9d58;
+    }
+
+    .custom /deep/ .cursor {
+      background-color: #1a237e;
+    }
+
+    .custom.invalid /deep/ .floated-label .label-text,
+    .custom /deep/ .error {
+      color: #f06292;
+    }
+
+    .custom.invalid /deep/ .focused-underline,
+    .custom.invalid /deep/ .cursor {
+      background-color: #f06292;
+    }
+
+    .custom {
+      width: 500px;
+      color: #1a237e;
+    }
+
+    .giant {
+      font-size: 30px;
+    }
+
+  </style>
+
+</head>
+<body unresolved>
+
+  <section>
+
+    <div>Standalone</div>
+
+    <br>
+
+    <site-search class="fixed" label="label"></site-search>
+
+    <br>
+
+    <site-search class="fixed" label="with floating label" floatingLabel></site-search>
+
+    <br>
+
+    <site-search class="giant" label="with custom font size"></site-search>
+
+  </section>
+
+  <section>
+
+    <div>Condensed</div>
+
+    <br>
+
+    <site-search class="fixed" label="label" canBeCondensed condensed="true"></site-search>
+
+    <br>
+
+    <site-search label="label" canBeCondensed condensed="true"></site-search>
+    <span>floating static content</span>
+
+
+  </section>
+
+  <section>
+
+    <div>Custom site</div>
+
+    <br>
+
+    <site-search class="fixed" label="search on github.com" site="github.com"></site-search>
+
+  </section>
+
+
+  <section>
+
+    <div>Custom styling</div>
+
+    <br>
+
+    <site-search class="custom" label="site-search"></site-search>
+
+  </section>
+
+</body>
+</html>

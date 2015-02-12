@@ -1,0 +1,20 @@
+{
+  "name": "paper-shadow",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.1.4"
+  },
+  "homepage": "https://github.com/Polymer/paper-shadow",
+  "_release": "955337c5e6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "955337c5e670a90c115c8bb24278c820626a64ac"
+  },
+  "_source": "git://github.com/Polymer/paper-shadow.git",
+  "_target": "master",
+  "_originalSource": "Polymer/paper-shadow"
+}

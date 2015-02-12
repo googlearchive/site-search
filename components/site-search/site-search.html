@@ -1,0 +1,162 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE
+The complete set of authors may be found at http://polymer.github.io/AUTHORS
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS
+-->
+
+<!--
+
+`site-search` is a single-line search text field that kicks out to a [site:]
+Google search for a specific domain (by default, the current domain).
+It is a convenience element composed of a `paper-input` and a `paper-icon-button`.
+
+Example:
+
+    <site-search label="meerkats"></site-search>
+
+Theming
+-------
+
+`site-search` can be styled similarly to `paper-input`.
+
+@group Paper Elements
+@element site-search
+@homepage github.io
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input-decorator.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<polymer-element name="site-search">
+  <template>
+
+    <style>
+      :host {
+        display: inline-block;
+      }
+
+      #button, #button[disabled] {
+        color: #000;
+        padding: 0;
+      }
+
+      #button /deep/ core-icon {
+        height: 1.4em;
+        width: 1.4em;
+      }
+
+      /* In the condensed state, hide the input field and the underline. */
+      .condensed  input, .condensed /deep/ .underline {
+        display: none;
+      }
+
+    </style>
+
+    <paper-input-decorator
+      label="{{label}}"
+      floatingLabel="{{floatingLabel}}"
+      value="{{value}}"
+      disabled?="{{disabled || condensed}}"
+      class="{{ {condensed: condensed} | tokenList }}">
+      <div horizontal layout>
+        <paper-icon-button
+          id="button"
+          icon="search"
+          title="search"
+          tabindex="0"
+          aria-label="search"
+          disabled?="{{!canBeCondensed}}"
+          on-tap="{{toggleSearch}}">
+        </paper-icon-button>
+        <input flex
+          type="search"
+          value="{{value}}"
+          committedValue="{{committedValue}}"
+          on-keyup="{{onKeyUp}}"
+          disabled?="{{disabled}}">
+      </div>
+    </paper-input-decorator>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      publish: {
+        /**
+         * The label for this input. It normally appears as grey text inside
+         * the text input and disappears once the user enters text.
+         *
+         * @attribute label
+         * @type string
+         * @default ''
+         */
+        label: '',
+
+        /**
+         * If true, the label will "float" above the text input once the
+         * user enters text instead of disappearing.
+         *
+         * @attribute floatingLabel
+         * @type boolean
+         * @default false
+         */
+        floatingLabel: false,
+
+        /**
+         * Set to true to style the element as disabled.
+         *
+         * @attribute disabled
+         * @type boolean
+         * @default false
+         */
+        disabled: {value: false, reflect: true},
+
+        /**
+         * If true, the search button can show or hide the search field.
+         *
+         * @attribute canBeCondensed
+         * @type boolean
+         * @default false
+         */
+        canBeCondensed: false,
+        /**
+         * If true, the search field will be hidden and only the search button
+         * will be displayed. Ignored if canBeCondensed is false.
+         *
+         * @attribute condensed
+         * @type boolean
+         * @default false
+         */
+        condensed: false,
+
+        /**
+         * The domain to be used for the search.
+         *
+         * @attribute site
+         * @type string
+         * @default the current domain
+         */
+        site: window.location.hostname
+      },
+
+      toggleSearch: function() {
+        if (!this.canBeCondensed) return;
+        this.condensed = !this.condensed;
+      },
+
+      onKeyUp: function(e) {
+        if (e.keyCode == 13) {  // Enter.
+          var q = encodeURIComponent('site:' + this.site + ' ' + this.value);
+          window.open('https://www.google.com/search?q=' + q);
+        }
+      }
+    });
+
+  </script>
+
+</polymer-element>

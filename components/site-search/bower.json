@@ -1,0 +1,12 @@
+{
+  "name": "site-search",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "paper-input": "Polymer/paper-input#master",
+    "paper-icon-button": "Polymer/paper-icon-button#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "*"
+  }
+}
