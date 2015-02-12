@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "paper-elements": "Polymer/paper-elements#master"
+    "paper-input": "Polymer/paper-input#master",
+    "paper-icon-button": "Polymer/paper-icon-button#master"
   },
   "devDependencies": {
     "web-component-tester": "*"
